@@ -1,6 +1,6 @@
 import React from 'react'
 
-const MenuBar = (props) => {
+const MenuBar = ({ selectedItem, handleClick }) => {
 
   /*
 
@@ -12,23 +12,26 @@ const MenuBar = (props) => {
   this component be made aware of what is currently the active menu item?
 
   */
+  function changeActiveClass(linkId) {
+    return `item ${selectedItem === linkId ? "active" : null}`
+  }
 
   return (
     <div className="ui four item menu">
-      <a className="item active" id="profile">
-        <i className="user large icon" id="profile"/>
+      <a className={changeActiveClass("profile")} id="profile" onClick={handleClick}>
+        <i className="user large icon" id="profile" />
       </a>
 
-      <a className="item" id="photo">
-        <i className="photo large icon" id="photo"/>
+      <a className={changeActiveClass("photo")} id="photo" onClick={handleClick}>
+        <i className="photo large icon" id="photo" />
       </a>
 
-      <a className="item" id="cocktail">
-        <i className="cocktail large icon" id="cocktail"/>
+      <a className={changeActiveClass("cocktail")} id="cocktail" onClick={handleClick}>
+        <i className="cocktail large icon" id="cocktail" />
       </a>
 
-      <a className="item" id="pokemon"> 
-        <i className=" themeisle large icon" id="pokemon"/>
+      <a className={changeActiveClass("pokemon")} id="pokemon" onClick={handleClick}>
+        <i className=" themeisle large icon" id="pokemon" />
       </a>
     </div>
   )
